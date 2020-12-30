@@ -406,7 +406,7 @@ optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
 度。其次，我们将用当前生成器构造一批假样本，通过![](notation/D.gif)向前传递该 batch，计算损失![](notation/log(1-).gif)，
 并通过反向传递累积梯度。现在，随着从全实时和全实时批量累积的梯度，我们称之为Discriminator优化器的一步。
 
-#### * 第一部分：训练判别器
+#### * 第二部分：训练生成器
 正如原始论文所述，我们希望通过最小化![](notation/log(1-).gif)来训练生成器，以便产生更好的伪样本。如上所述，Goodfellow 表
 明这不会提供足够的梯度，尤其是在学习过程的早期阶段。作为修复，我们希望最大化![](notation/log_DGz.gif)。在代码中，我们通过
 以下方式实现此目的：使用判别器对第1部分的生成器中的输出进行分类，使用真实标签： GT 标签计算![](notation/G.gif)的损失，
